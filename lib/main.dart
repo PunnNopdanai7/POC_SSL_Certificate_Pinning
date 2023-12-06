@@ -36,6 +36,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _useValidSHA256Certificate = true;
   bool _useExpiredCertificate = false;
+  bool _disableFetchButton = false;
 
   void _toggleUsingValidSHA256Certificate(bool value) {
     setState(() {
@@ -54,11 +55,28 @@ class _MyHomePageState extends State<MyHomePage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
+        dismissDirection: DismissDirection.up,
+        behavior: SnackBarBehavior.floating,
       ),
     );
   }
 
-  void fetchAPI() async {
+  Dio getClient(String baseUrl, List<String> allowedSHAFingerprints) {
+    final dio = Dio(
+      BaseOptions(
+        baseUrl: baseUrl,
+      ),
+    );
+    dio.interceptors.add(
+      CertificatePinningInterceptor(
+        allowedSHAFingerprints: allowedSHAFingerprints,
+      ),
+    );
+
+    return dio;
+  }
+
+  void fetchAPI() {
     List<String> allowedSHAFingerprints = [];
     if (_useValidSHA256Certificate) {
       allowedSHAFingerprints.add(validSHA256Certificate);
@@ -67,15 +85,32 @@ class _MyHomePageState extends State<MyHomePage> {
       allowedSHAFingerprints.add(expiredSHA256Certificate);
     }
 
-    try {
+    if (!_disableFetchButton) {
+      setState(() {
+        _disableFetchButton = true;
+      });
       Dio client = getClient(
         baseURL,
         allowedSHAFingerprints,
       );
-      final res = await client.get("/");
-      _showInfoMessage('${res.statusCode} ${res.statusMessage}');
-    } catch (e) {
-      _showInfoMessage(e.toString());
+      client
+          .get("/")
+          .then(
+            (value) => {
+              _showInfoMessage('${value.statusCode} ${value.statusMessage}'),
+              setState(() {
+                _disableFetchButton = false;
+              })
+            },
+          )
+          .catchError(
+            (e) => {
+              _showInfoMessage(e.toString()),
+              setState(() {
+                _disableFetchButton = false;
+              })
+            },
+          );
     }
   }
 
@@ -86,57 +121,121 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SwitchListTile(
-              value: _useValidSHA256Certificate,
-              onChanged: (bool value) {
-                _toggleUsingValidSHA256Certificate(value);
-              },
-              title: const Text(
-                'Use The Valid SHA256 Certificate',
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 8,
+            vertical: 16,
+          ),
+          child: Column(
+            children: [
+              Card(
+                elevation: 2,
+                child: Column(
+                  children: [
+                    SwitchListTile(
+                      value: _useValidSHA256Certificate,
+                      onChanged: (bool value) {
+                        _toggleUsingValidSHA256Certificate(value);
+                      },
+                      title: const Text(
+                        'Use Valid SHA256 Certificate',
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                      ),
+                      height: 40,
+                      child: RichText(
+                        // textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: Theme.of(context).textTheme.bodySmall,
+                          children: [
+                            TextSpan(
+                              text: _useValidSHA256Certificate
+                                  ? 'SHA-256 Certificate Fingerprint: '
+                                  : '',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            TextSpan(
+                              text: _useValidSHA256Certificate
+                                  ? validSHA256Certificate
+                                  : '',
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SwitchListTile(
-              value: _useExpiredCertificate,
-              onChanged: (bool value) {
-                _toggleUsingExpriedCertificate(value);
-              },
-              title: const Text(
-                'Use The Expried Certificate',
+              const SizedBox(height: 16),
+              Card(
+                elevation: 2,
+                child: Column(
+                  children: [
+                    SwitchListTile(
+                      value: _useExpiredCertificate,
+                      onChanged: (bool value) {
+                        _toggleUsingExpriedCertificate(value);
+                      },
+                      title: const Text(
+                        'Use Expried Certificate',
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                      ),
+                      height: 40,
+                      child: RichText(
+                        // textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: Theme.of(context).textTheme.bodySmall,
+                          children: [
+                            TextSpan(
+                              text: _useExpiredCertificate
+                                  ? 'SHA-256 Certificate Fingerprint: '
+                                  : '',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            TextSpan(
+                              text: _useExpiredCertificate
+                                  ? expiredSHA256Certificate
+                                  : '',
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 16),
+              if (_disableFetchButton)
+                const Expanded(
+                  child: Text("Fetching API from $baseURL"),
+                ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: fetchAPI,
         tooltip: 'Fetch API',
-        child: const Icon(Icons.send),
+        child: Icon(_disableFetchButton ? Icons.lock : Icons.send),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}
-
-Dio getClient(String baseUrl, List<String> allowedSHAFingerprints) {
-  final dio = Dio(
-    BaseOptions(
-      baseUrl: baseUrl,
-    ),
-  );
-  // (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-  //     (HttpClient client) {
-  //   client.badCertificateCallback =
-  //       (X509Certificate cert, String host, int port) => false;
-  //   return client;
-  // };
-  dio.interceptors.add(
-    CertificatePinningInterceptor(
-      allowedSHAFingerprints: allowedSHAFingerprints,
-    ),
-  );
-
-  return dio;
 }
