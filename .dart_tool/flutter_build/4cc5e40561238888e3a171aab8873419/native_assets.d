@@ -1,0 +1,1 @@
+ /Users/nopdanai.saya/Documents/GitHub/POC_SSL_Certificate_Pinning/.dart_tool/flutter_build/4cc5e40561238888e3a171aab8873419/native_assets.yaml: 

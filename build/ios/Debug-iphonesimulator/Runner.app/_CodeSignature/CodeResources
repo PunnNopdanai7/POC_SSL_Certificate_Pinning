@@ -44,9 +44,21 @@
 		<data>
 		sPhzGA41FQRsyiQc9b/v8rCOPg8=
 		</data>
+		<key>Frameworks/Alamofire.framework/Alamofire</key>
+		<data>
+		W0hUFnDGWjuGZ6bAlLwf+Jb2SdQ=
+		</data>
+		<key>Frameworks/Alamofire.framework/Info.plist</key>
+		<data>
+		xDlfn5m4IYhHN9I0V6BNa6TxJPE=
+		</data>
+		<key>Frameworks/Alamofire.framework/_CodeSignature/CodeResources</key>
+		<data>
+		ISMJWWJ5x1wbr9gkknnv5RXskB4=
+		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		bs/0ISNirfWz+CzC2fAu9D8lrXQ=
+		rgSVfhZtzB+fMcm3SNMehoY4DLI=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +66,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		vfWJv1oQzNJLQJPv0BXt0pg96o4=
+		VjPL/ZcyeqvsZNx3xjBgPaAU9BM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -70,7 +82,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		VznX3L93pC3rTuRSeuDmzihiakY=
+		7K5kexAojgNncHPeM/fs+edSLAw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -82,7 +94,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		cuRb5w05z+TYtThg8TiDfmkIjZk=
+		mZKapYoyaczWJka/IwEGi3+Gwr0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -95,6 +107,18 @@
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>
 		<data>
 		cW0Pqsk2814YYWUEON+YgI6+YD0=
+		</data>
+		<key>Frameworks/CryptoSwift.framework/CryptoSwift</key>
+		<data>
+		aX5vi0xrlCb3ZGBj7hj5mL5Iwy8=
+		</data>
+		<key>Frameworks/CryptoSwift.framework/Info.plist</key>
+		<data>
+		9wJbBddUV3CMX9darysY6gejOrU=
+		</data>
+		<key>Frameworks/CryptoSwift.framework/_CodeSignature/CodeResources</key>
+		<data>
+		fscOnMgNWF2ni1AMJGZ84GyKo4k=
 		</data>
 		<key>Frameworks/Flutter.framework/Flutter</key>
 		<data>
@@ -180,6 +204,18 @@
 		<data>
 		Ubat0LvE4LUgCwHeyl0Anx2vnzk=
 		</data>
+		<key>Frameworks/http_certificate_pinning.framework/Info.plist</key>
+		<data>
+		oJIUo0bzrxjLx20MxO4eNYgHIXM=
+		</data>
+		<key>Frameworks/http_certificate_pinning.framework/_CodeSignature/CodeResources</key>
+		<data>
+		xU9uq0hA+i8P33ZvdbGQ5rj0dsY=
+		</data>
+		<key>Frameworks/http_certificate_pinning.framework/http_certificate_pinning</key>
+		<data>
+		wUExS5594a/PNlUoo+QafLMpNRo=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		h1EbboEuvIAGBjSAuz3EzqDjqnY=
@@ -261,11 +297,32 @@
 			ZQ2gUxmWEdRgkn12jxaOmSDD+9/+PopRzqA3/yf4tK4=
 			</data>
 		</dict>
+		<key>Frameworks/Alamofire.framework/Alamofire</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oJqSkps64DtfjNuRp1jJ4Bzc9w9NiQAPJbgpt5iGCPw=
+			</data>
+		</dict>
+		<key>Frameworks/Alamofire.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wZlEOZsrcbjltpWUbKKl50kBTEL21wz2+zvUgFgg7jA=
+			</data>
+		</dict>
+		<key>Frameworks/Alamofire.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2mKBAVTK64Ca2ELzjD2zI8dVOtMEGYEFbaXfpBNo86M=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/App</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6nwbWZUvhoG7oCcnUyEMSEcwGw2KZWUSDnnCcwRN9yQ=
+			kPfKuYOffN7iWZo803Yawosmo/kAxEoeJL0fEcnIGZI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -279,7 +336,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zKPr5bqz69IcP4p5o0A8BSoinf3XI2ytHLo+d8aBNPA=
+			KdS4pKQCdg2rVcId5oFuI6Gg/EO2mLzHXAoI9z/O+js=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -307,7 +364,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eus3p+jbEZdoCovP11hDY7hDqvx4xNOHF+zkjp1BRhY=
+			RzsZ4nzhsmIpfoxIHfd+elpzbzpiv2YZQaFhZQV6J70=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -328,7 +385,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ghh0TxgFCMO0lpb7XyoPcvHRmb3vE4qK1r4R4BNCNpA=
+			ZPAQ2eJSc5Tk3BG4pTzoKXBWy0KoNn5T79R0sOpcF5o=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -350,6 +407,27 @@
 			<key>hash2</key>
 			<data>
 			sev5a27JT/ZUSpHrGmWBmxjqtUgq1PyqOI5pHwvTLwg=
+			</data>
+		</dict>
+		<key>Frameworks/CryptoSwift.framework/CryptoSwift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			tNjIaQdYnLf/JOLDkDuEKv8NWXFeKgPW7zwt2Ty9hyA=
+			</data>
+		</dict>
+		<key>Frameworks/CryptoSwift.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			hrJxVT1QHFzkNmnG8OiIuMIBN2+zB+MtL6eux2ZJdOM=
+			</data>
+		</dict>
+		<key>Frameworks/CryptoSwift.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4vWnXP0ZHnd0iVtwprsDg+KKtN3jbKGWaYC6fdm9H9k=
 			</data>
 		</dict>
 		<key>Frameworks/Flutter.framework/Flutter</key>
@@ -497,6 +575,27 @@
 			<key>hash2</key>
 			<data>
 			ZepykIMSjfzhwAcmupMrkaqvXkhza1ZE3TdHjl8odaw=
+			</data>
+		</dict>
+		<key>Frameworks/http_certificate_pinning.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gl/wR6EQsJHCK/0Ep2p6kMhMZJ8qxy5XENd32y32Vqo=
+			</data>
+		</dict>
+		<key>Frameworks/http_certificate_pinning.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fpfoMlgkHgGOuPmLSP0PHhV2OLPVauSCIWPbWAWVjuc=
+			</data>
+		</dict>
+		<key>Frameworks/http_certificate_pinning.framework/http_certificate_pinning</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			H2HiCl0J+u/wULFEAUb1mczOlRS1uD666ZSVe5CTqY0=
 			</data>
 		</dict>
 	</dict>
